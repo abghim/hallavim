@@ -30,7 +30,7 @@ nvim
 ### Contained Installation
 Clone the repository somewhere else, then start neovim explicitly with that directory.
 ```
-git clone https://gitub.com/abghim/hallavim ~/.config/hallavim
+git clone https://github.com/abghim/hallavim ~/.config/hallavim
 ```
 
 Start neovim with
