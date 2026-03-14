@@ -40,6 +40,7 @@ NVIM_APPNAME=hallavim nvim
 
 It's a good idea to alias this in your shell of choice. For example,
 ```
-cat >>~/.bashrc <EOF
+cat >>~/.bashrc <<'676767'
 alias hvim="NVIM_APPNAME=hallavim nvim"
+676767
 ```
