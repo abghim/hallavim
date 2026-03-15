@@ -4,7 +4,7 @@ A calmer vim amidst volcanic Jeju. Code closer to nature.
 ## Description
 HallaVim is a `neovim` configuration built on the Jeju One Dark theme ([https://abghim.github.io/jeju-one-dark](https://abghim.github.io/jeju-one-dark)). It provides a balanced degree of control, functionality, and eye-candy. Experience a restrained, snappy, & bloatless vim experience.
 
-> [!WARNING]
+> [!IMPORTANT]
 > HallaVim requires `nvim >= 0.11.1`. Important lsp & telescope features will otherwise fail.
 
 ### Packages
