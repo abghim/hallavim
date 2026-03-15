@@ -74,8 +74,8 @@ alias hvim="NVIM_APPNAME=hallavim nvim"
 ```
 
 ## Screenshots
-![](./sc1.png )
-![](./sc2.png )
-![](./sc3.png )
-![]( ./sc4.png )
-![]( ./sc5.png )
+![](https://github.com/abghim/hallavim/blob/master/sc1.png?raw=true)
+![](https://github.com/abghim/hallavim/blob/master/sc2.png?raw=true)
+![](https://github.com/abghim/hallavim/blob/master/sc3.png?raw=true)
+![](https://github.com/abghim/hallavim/blob/master/sc4.png?raw=true)
+![](https://github.com/abghim/hallavim/blob/master/sc5.png?raw=true)
