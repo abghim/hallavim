@@ -241,7 +241,39 @@ return {
 		"nvim-mini/mini.starter",
 		event = "VimEnter",
 		config = function()
+			local palette = require("mytheme.palette")
 			local starter = require("mini.starter")
+
+			vim.api.nvim_set_hl(0, "MiniStarterHeader", { fg = palette.fg })
+			vim.api.nvim_set_hl(0, "MiniStarterHeaderSlash", { fg = palette.keyword })
+
+			local function highlight_logo_slashes(content)
+				local next_content = {}
+
+				for _, line in ipairs(content) do
+					local next_line = {}
+
+					for _, unit in ipairs(line) do
+						if unit.type == "header" then
+							for i = 1, #unit.string do
+								local char = unit.string:sub(i, i)
+								table.insert(next_line, {
+									string = char,
+									type = unit.type,
+									hl = char == "/" and "MiniStarterHeaderSlash" or "MiniStarterHeader",
+								})
+							end
+						else
+							table.insert(next_line, unit)
+						end
+					end
+
+					table.insert(next_content, next_line)
+				end
+
+				return next_content
+			end
+
 			starter.setup({
 				header = [=[
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -257,6 +289,11 @@ return {
 					starter.sections.recent_files(5, true),
 				},
 				footer = "",
+				content_hooks = {
+					highlight_logo_slashes,
+					starter.gen_hook.adding_bullet(),
+					starter.gen_hook.aligning("center", "center"),
+				},
 			})
 		end,
 	},
