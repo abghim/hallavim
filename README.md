@@ -4,6 +4,9 @@ A calmer vim amidst volcanic Jeju. Code closer to nature.
 ## Description
 HallaVim is a `neovim` configuration built on the Jeju One Dark theme ([https://abghim.github.io/jeju-one-dark](https://abghim.github.io/jeju-one-dark)). It provides a balanced degree of control, functionality, and eye-candy. Experience a restrained, snappy, & bloatless vim experience.
 
+> [!WARNING]
+> HallaVim requires `nvim >= 0.11.1`. Important lsp & telescope features will otherwise fail.
+
 ### Packages
 > [!NOTE]
 > These packages are fetched & installed automatically by lazy.nvim.
@@ -11,19 +14,19 @@ HallaVim is a `neovim` configuration built on the Jeju One Dark theme ([https://
 
 The following packages are bundled by HallaVim. They were chosen to (1) take the programmer where he/she needs to be with minimal mental overhead and (2) add small cosmetic details that improve readability.
 
-- aerial.nvim: code outline sidebar (`Space o`)
-- autoclose.nvim: autoclose, autoindent, and autodelete brackets
-- harpoon: mark & jump between common files in a project (`Space hh, Space ha, Space hr, Space 1-4`)
-- mini.icons, mini.starter: editor startup screen
-- nvim-tree.lua: directory tree sidebar (`Space e`)
-- nvim-treesitter.lua: tree-sitter for neovim
-- nvim-colorizer.lua: preview hex & rgba colors
-- oil.nvim: edit your directory as if it was a vim buffer
-- undotree: TUI frontend to nvim's undo tree function (`Space u`)
-- snacks.nvim: adds the right amount of eye-candy, including tab lines
-- telescope.nvim: find files & grep text within the editor (`Space ff, Space fg`)
-- nvim-web-devicons, plenary.nvim, telescope-fzf-native.nvim: silently does its job
-- LuaSnip, nvim-cmp, cmp-buffer, cmp-nvim-lsp, cmp-path, cmp_luasnip, fidget.nvim: smooth LSP integration (opt-in)
+- [aerial.nvim](https://github.com/stevearc/aerial.nvim): code outline sidebar (`Space o`)
+- [autoclose.nvim](https://github.com/m4xshen/autoclose.nvim): autoclose, autoindent, and autodelete brackets
+- [harpoon](https://github.com/ThePrimeagen/harpoon): mark & jump between common files in a project (`Space hh, Space ha, Space hr, Space 1-4`)
+- [mini.icons](https://github.com/nvim-mini/mini.icons), [mini.starter](https://github.com/nvim-mini/mini.starter): editor startup screen
+- [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua): directory tree sidebar (`Space e`)
+- [nvim-treesitter.lua](https://github.com/nvim-treesitter/nvim-treesitter): tree-sitter for neovim
+- [nvim-colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua): preview hex & rgba colors
+- [oil.nvim](https://github.com/stevearc/oil.nvim): edit your directory as if it was a vim buffer
+- [undotree](https://github.com/mbbill/undotree): TUI frontend to nvim's undo tree function (`Space u`)
+- [snacks.nvim](https://github.com/folke/snacks.nvim): adds the right amount of eye-candy, including tab lines
+- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim): find files & grep text within the editor (`Space ff, Space fg`)
+- [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons), [plenary.nvim](https://github.com/nvim-lua/plenary.nvim), [telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim): silently does its job
+- [LuaSnip](https://github.com/L3MON4D3/LuaSnip), [nvim-cmp](https://github.com/hrsh7th/nvim-cmp), [cmp-buffer](https://github.com/hrsh7th/cmp-buffer), [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp), [cmp-path](https://github.com/hrsh7th/cmp-path), [cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip), [fidget.nvim](https://github.com/j-hui/fidget.nvim): smooth LSP integration (opt-in)
 
 ## Install
 ### Automated Installer Script
