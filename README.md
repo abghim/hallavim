@@ -30,7 +30,9 @@ The following packages are bundled by HallaVim. They were chosen to (1) take the
 
 ## Install
 ### Automated Installer Script
-WIP :)
+```
+curl https://gist.githubusercontent.com/abghim/ed48141fc4f1243a3f2552dec447c645/raw/.hallavim-install.sh | bash
+```
 
 ### Macho Installation
 
