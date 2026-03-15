@@ -1,6 +1,13 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+local undo_dir = vim.fn.expand("~/.vim/undo_dir")
+
+
+vim.fn.mkdir(undo_dir, "p")
+vim.opt.undofile = true
+vim.opt.undodir = undo_dir
+
 local backup_dir = vim.fn.expand("~/.vim/backups")
 vim.fn.mkdir(backup_dir, "p")
 
@@ -157,3 +164,5 @@ vim.api.nvim_create_autocmd("FileType", {
 		end, { buffer = ev.buf, silent = true, nowait = true })
 	end,
 })
+
+
