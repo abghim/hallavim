@@ -72,3 +72,10 @@ cat >>~/.bashrc <<'676767'
 alias hvim="NVIM_APPNAME=hallavim nvim"
 676767
 ```
+
+## Screenshots
+![](img / ./sc1.png )
+![](img / ./sc2.png )
+![](img / ./sc3.png )
+![](img / ./sc4.png )
+![](img / ./sc5.png )
