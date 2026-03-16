@@ -57,34 +57,32 @@ return {
 		},
 		config = function()
 			local harpoon = require("harpoon")
-			local mark = require("harpoon.mark")
-			local ui = require("harpoon.ui")
-			harpoon.setup({})
+			harpoon:setup({})
 
 			local function map(lhs, rhs, desc)
 				vim.keymap.set("n", lhs, rhs, { desc = desc })
 			end
 
 			map("<leader>ha", function()
-				mark.add_file()
+				harpoon:list():add()
 			end, "Harpoon: add")
 			map("<leader>hr", function()
-				mark.rm_file()
+				harpoon:list():remove()
 			end, "Harpoon: remove")
 			map("<leader>hh", function()
-				ui.toggle_quick_menu()
+				harpoon.ui:toggle_quick_menu(harpoon:list())
 			end, "Harpoon: menu")
 			map("<leader>1", function()
-				ui.nav_file(1)
+				harpoon:list():select(1)
 			end, "Harpoon 1")
 			map("<leader>2", function()
-				ui.nav_file(2)
+				harpoon:list():select(2)
 			end, "Harpoon 2")
 			map("<leader>3", function()
-				ui.nav_file(3)
+				harpoon:list():select(3)
 			end, "Harpoon 3")
 			map("<leader>4", function()
-				ui.nav_file(4)
+				harpoon:list():select(4)
 			end, "Harpoon 4")
 		end,
 	},
@@ -180,6 +178,7 @@ return {
 					"java",
 					"json",
 					"toml",
+					"bash"
 				},
 				highlight = { enable = true },
 			})
