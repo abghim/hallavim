@@ -44,29 +44,6 @@ vim.opt.shiftwidth = 4
 vim.opt.guifont = "Monaco Nerd Font:h17"
 vim.g.neovide_hide_mouse_when_typing = true
 
-vim.lsp.enable("jdtls")
-vim.lsp.enable("clangd")
-vim.lsp.enable("rust_analyzer")
-vim.lsp.enable("ty")
-vim.lsp.enable("texlab")
-
-vim.lsp.config("jdtls", { cmd = { "jdtls" }, filetypes = { "java", "jav" }, settings = { ["jdtls"] = {} } })
-vim.lsp.config(
-	"rust_analyzer",
-	{ cmd = { "rust-analyzer" }, filetypes = { "rs", "rust" }, settings = { ["rust_analyzer"] = {} } }
-)
-vim.lsp.config(
-	"clangd",
-	{ cmd = { "clangd" }, filetypes = { "c", "cpp", "h", "hpp", "hh", "cc" }, settings = { ["clangd"] = {} } }
-)
-
-vim.lsp.config("ty", {
-	cmd = { "ty", "server" },
-	filetypes = { "python", "py" },
-})
-
-vim.lsp.config("texlab", { cmd = { "texlab" }, filetypes = { "tex", "latex" } })
-
 local cmp = require("cmp")
 
 cmp.setup({
@@ -162,5 +139,4 @@ vim.api.nvim_create_autocmd("FileType", {
 		end, { buffer = ev.buf, silent = true, nowait = true })
 	end,
 })
-
 

@@ -97,7 +97,8 @@ return {
 		},
 		config = function()
 			local telescope = require("telescope")
-			telescope.setup({})
+			telescope.setup({
+			})
 			local builtin = require("telescope.builtin")
 			vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 			vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
@@ -149,6 +150,24 @@ return {
 		event = "LspAttach",
 		opts = {},
 	},
+	{
+		"neovim/nvim-lspconfig",
+	},
+	{
+		"WieeRd/auto-lsp.nvim",
+		dependencies = {
+			"neovim/nvim-lspconfig",
+			"hrsh7th/cmp-nvim-lsp",
+		},
+		lazy = false,
+		opts = {
+			["*"] = function()
+				return {
+					capabilities = require("cmp_nvim_lsp").default_capabilities(),
+				}
+			end,
+		},
+	},
 
 	{
 		"nvim-tree/nvim-tree.lua",
@@ -171,7 +190,6 @@ return {
 					"python",
 					"cpp",
 					"rust",
-					"bash",
 					"html",
 					"css",
 					"javascript",
