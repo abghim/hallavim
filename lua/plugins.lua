@@ -183,9 +183,13 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		lazy = false,
 		config = function()
-			require("nvim-treesitter.configs").setup({
-				ensure_installed = {
+
+			require("nvim-treesitter").setup({
+				install_dir = vim.fn.stdpath("data") .. "/site"
+			})
+			require("nvim-treesitter").install({
 					"lua",
 					"python",
 					"cpp",
@@ -197,9 +201,18 @@ return {
 					"json",
 					"toml",
 					"bash"
-				},
-				highlight = { enable = true },
 			})
+
+			vim.api.nvim_create_autocmd('FileType', {
+				pattern = {'lua', 'python', 'cpp', 'rust', 'html', 'css', 'javascript', 'java', 'json', 'toml', 'sh'},
+				callback = function()
+					vim.treesitter.start()
+				end
+			})
+
+			
+
+
 		end,
 	},
 	{
