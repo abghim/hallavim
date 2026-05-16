@@ -189,19 +189,19 @@ return {
 			require("nvim-treesitter").setup({
 				install_dir = vim.fn.stdpath("data") .. "/site"
 			})
-			require("nvim-treesitter").install({
-					"lua",
-					"python",
-					"cpp",
-					"rust",
-					"html",
-					"css",
-					"javascript",
-					"java",
-					"json",
-					"toml",
-					"bash"
-			})
+			-- require("nvim-treesitter").install({
+			-- 		"lua",
+			-- 		"python",
+			-- 		"cpp",
+			-- 		"rust",
+			-- 		"html",
+			-- 		"css",
+			-- 		"javascript",
+			-- 		"java",
+			-- 		"json",
+			-- 		"toml",
+			-- 		"bash"
+			-- })
 
 			vim.api.nvim_create_autocmd('FileType', {
 				pattern = {'lua', 'python', 'cpp', 'rust', 'html', 'css', 'javascript', 'java', 'json', 'toml', 'sh'},
@@ -214,6 +214,11 @@ return {
 
 
 		end,
+	},
+	{
+		"lewis6991/gitsigns.nvim",
+		config = function() 
+		end
 	},
 	{
 		"hrsh7th/nvim-cmp",
