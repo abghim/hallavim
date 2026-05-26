@@ -343,4 +343,18 @@ return {
 			{ "<leader>o", "<cmd>AerialToggle!<cr>", desc = "Toggle outline" },
 		},
 	},
+	{
+	  "folke/lazydev.nvim",
+	  ft = "lua",
+	  opts = {
+		library = {
+		  -- Needed if you use vim.uv / vim.loop APIs
+		  { path = "luvit-meta/library", words = { "vim%.uv" } },
+		},
+	  },
+	},
+	{
+	  "Bilal2453/luvit-meta",
+	  lazy = true,
+	}
 }

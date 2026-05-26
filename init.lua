@@ -43,6 +43,11 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.guifont = "Monaco Nerd Font:h17"
 vim.g.neovide_hide_mouse_when_typing = true
+vim.g.neovide_cursor_animation_length = 0
+vim.g.neovide_scroll_animation_length = 0
+vim.g.neovide_position_animation_length = 0
+vim.g.neovide_text_gamma = 1.0
+vim.g.neovide_text_contrast = 0.5
 
 local cmp = require("cmp")
 
