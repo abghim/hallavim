@@ -41,7 +41,8 @@ vim.opt.termguicolors = true
 vim.opt.updatetime = 700
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.guifont = "Monaco Nerd Font:h17"
+vim.opt.guifont = "MonacoLigaturized Nerd Font:h17"
+
 vim.g.neovide_hide_mouse_when_typing = true
 vim.g.neovide_cursor_animation_length = 0
 vim.g.neovide_scroll_animation_length = 0
@@ -148,3 +149,18 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_user_command("Tum", function()
 	vim.cmd("terminal bash")
 end, {})
+
+vim.keymap.set('n', '<leader>y', '\"+y')
+vim.keymap.set('v', '<leader>y', '\"+y')
+vim.keymap.set('n', '<leader>gd', function() vim.lsp.buf.definition() end)
+vim.keymap.set('n', '<leader>l', ':lua ')
+vim.keymap.set('n', '<leader>p', '\"+p')
+
+vim.api.nvim_create_user_command("Wq", function()
+	vim.cmd("x")
+end, {})
+
+vim.api.nvim_create_user_command("W", function()
+	vim.cmd("w")
+end, {})
+

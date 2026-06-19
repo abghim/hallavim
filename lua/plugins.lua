@@ -235,6 +235,23 @@ return {
 			require("luasnip.loaders.from_vscode").lazy_load()
 
 			cmp.setup({
+
+				window = {
+					completion = cmp.config.window.bordered({
+						border = "rounded",
+						winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None",
+						scrollbar = true,
+						max_width = 20,
+						max_height = 15,
+					}),
+					documentation = cmp.config.window.bordered({
+						border = "rounded",
+						winhighlight = "Normal:CmpDoc,FloatBorder:CmpDocBorder,Search:None",
+						max_width = 80,
+						max_height = 15,
+					}),
+				},
+
 				snippet = {
 					expand = function(args)
 						luasnip.lsp_expand(args.body)
@@ -242,23 +259,38 @@ return {
 				},
 				mapping = cmp.mapping.preset.insert({
 					["<C-Space>"] = cmp.mapping.complete(),
-					["<CR>"] = cmp.mapping.confirm({ select = true }),
-					["<Tab>"] = cmp.mapping(function(fb)
+					["<Tab>"] = cmp.mapping.confirm({ select = true }),
+					["<C-n>"] = cmp.mapping.select_next_item({
+						behavior = cmp.SelectBehavior.Select,
+						count = 1,
+					}),
+
+					["<C-p>"] = cmp.mapping.select_prev_item({
+						behavior = cmp.SelectBehavior.Select,
+						count = 1,
+					}),
+
+					["<PageDown>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
-							cmp.select_next_item()
-						elseif luasnip.expand_or_jumpable() then
-							luasnip.expand_or_jump()
+							for _ = 1, 5 do
+								cmp.select_next_item({
+									behavior = cmp.SelectBehavior.Select,
+								})
+							end
 						else
-							fb()
+							fallback()
 						end
 					end, { "i", "s" }),
-					["<S-Tab>"] = cmp.mapping(function(fb)
+
+					["<PageUp>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
-							cmp.select_prev_item()
-						elseif luasnip.jumpable(-1) then
-							luasnip.jump(-1)
+							for _ = 1, 5 do
+								cmp.select_prev_item({
+									behavior = cmp.SelectBehavior.Select,
+								})
+							end
 						else
-							fb()
+							fallback()
 						end
 					end, { "i", "s" }),
 				}),
@@ -311,13 +343,13 @@ return {
 
 			starter.setup({
 				header = [=[
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-/// \\/// \\/////// \\/// \\\\\\\/// \\\\\\\\/////// \\/// \\/// \///// \/// \\/// \
-/// \\/// \/// \\/// \/// \\\\\\\/// \\\\\\\/// \\/// \/// \\/// \\/// \\//// //// \
-///////// \///////// \/// \\\\\\\/// \\\\\\\///////// \/// \\/// \\/// \\/// / /// \
-/// \\/// \/// \\/// \/// \\\\\\\/// \\\\\\\/// \\/// \\/// /// \\\/// \\/// \\/// \
-/// \\/// \/// \\/// \///////// \///////// \/// \\/// \\\///// \\\///// \/// \\/// \
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+				\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+				/// \\/// \\/////// \\/// \\\\\\\/// \\\\\\\\/////// \\/// \\/// \///// \/// \\/// \
+				/// \\/// \/// \\/// \/// \\\\\\\/// \\\\\\\/// \\/// \/// \\/// \\/// \\//// //// \
+				///////// \///////// \/// \\\\\\\/// \\\\\\\///////// \/// \\/// \\/// \\/// / /// \
+				/// \\/// \/// \\/// \/// \\\\\\\/// \\\\\\\/// \\/// \\/// /// \\\/// \\/// \\/// \
+				/// \\/// \/// \\/// \///////// \///////// \/// \\/// \\\///// \\\///// \/// \\/// \
+				\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 				]=],
 				items = {
 					starter.sections.builtin_actions(),
@@ -344,17 +376,17 @@ return {
 		},
 	},
 	{
-	  "folke/lazydev.nvim",
-	  ft = "lua",
-	  opts = {
-		library = {
-		  -- Needed if you use vim.uv / vim.loop APIs
-		  { path = "luvit-meta/library", words = { "vim%.uv" } },
+		"folke/lazydev.nvim",
+		ft = "lua",
+		opts = {
+			library = {
+				-- Needed if you use vim.uv / vim.loop APIs
+				{ path = "luvit-meta/library", words = { "vim%.uv" } },
+			},
 		},
-	  },
 	},
 	{
-	  "Bilal2453/luvit-meta",
-	  lazy = true,
+		"Bilal2453/luvit-meta",
+		lazy = true,
 	}
 }
